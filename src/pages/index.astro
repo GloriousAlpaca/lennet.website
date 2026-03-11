@@ -1,17 +1,47 @@
 ---
-
+// Javascript Location
 ---
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lennet.</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  </head>
+  <body>
+    <main>
+      <h1>lennet.</h1>
+      <div id="timer">00 : 00 : 00 : 00</div>
+    </main>
+    <canvas id="gl_canvas">
+    </canvas>
+  </body>
 </html>
+
+<style is:global>
+  
+  @font-face {
+    font-family: 'lennet-headline';
+    /* Der Pfad muss exakt zu deinem Ordner passen */
+    src: url('../fonts/bluu_bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  #gl_canvas {
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+  }
+
+  h1 {
+    font-family: 'lennet-headline', sans-serif;
+    font-size: 80px;
+  }
+</style>
