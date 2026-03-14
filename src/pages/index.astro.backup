@@ -1,0 +1,227 @@
+---
+// Javascript Location
+---
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lennet.</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+
+  </head>
+  <body>
+    <header>
+      <button id="menu-btn">
+        menü.
+      </button>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a class="nav-link" href="#">lennet.</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">events.</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">demos.</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">artists.</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">about.</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h1>lennet.</h1>
+        <p class="intro-strich">
+        Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet.
+        </p>
+        <p>
+        Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt. Und es war ihnen wie eine Bestätigung ihrer neuen Träume und guten Absichten, als am Ziele ihrer Fahrt die Tochter als erste sich erhob und ihren jungen Körper dehnte. »Es ist ein eigentümlicher Apparat«, sagte der Offizier zu dem Forschungsreisenden und überblickte mit einem gewissermaßen bewundernden Blick den ihm doch wohlbekannten Apparat. 
+        </p>
+      </section>
+      <section>
+        <h2>test.</h2>
+      </section>
+    </main>
+    <canvas id="gl_canvas">
+    </canvas>
+  </body>
+</html>
+
+<style is:global>
+  /* bluu-next-bold edit */
+  @font-face {
+    font-family: 'Bluu-Next-Bold';
+    src: url('../fonts/bluu_bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* eb-garamond-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/eb-garamond-v32-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  header {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 101;
+  }
+
+  body {
+    font-family: 'EB Garamond', serif; 
+  }
+
+  main {
+    padding: 0 24px; /* 0 Pixel oben/unten, 24 Pixel links/rechts */
+  }
+
+  h1 {
+    font-family: 'Bluu-Next-Bold', serif;
+    font-size: 55px;
+    text-align: center;
+    position: relative;
+  }
+
+  h1::after {
+    content: "";
+    height:4px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h2 {
+    font-family: 'Bluu-Next-Bold', serif;
+    font-size: 55px;
+    text-align: center;
+    position: relative;
+  }
+
+  h2::after {
+    content: "";
+    height:4px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  a {
+    font-family: "Bluu-Next-Bold";
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px); /* Zwingend nötig für Safari/iOS! */
+    z-index: 100;
+  }
+
+  nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  #gl_canvas {
+    /* background-color: red; */
+    background-color: #E7E7E7;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  #menu-btn{
+    font-family:inherit;
+    font-size: 20px;
+    background: none;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .nav-link{
+    display: block;
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    height:2px;
+    width: 33%;
+    background-color: black;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .intro-strich{
+    position: relative;
+  }
+
+  .intro-strich::after{
+    content: "";
+    height:2px;
+    width: 33%;
+    background-color: black;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+</style>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const nav = document.querySelector('nav');
+  menuBtn?.addEventListener('click', () => {
+    // toggle() schaltet die Klasse 'is-open' an oder aus
+    nav?.classList.toggle('is-open');
+  });
+</script>
